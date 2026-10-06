@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "message": "获取成功",
+  "data": {
+    "date": "2026-10-06",
+    "source": "中国新闻网 · 要闻 RSS",
+    "link": "https://www.chinanews.com.cn/rss/importnews.xml",
+    "news": [
+      "我国海水淡化日处理能力突破300万吨",
+      "百日千万招聘专项行动推出四个线上招聘专场",
+      "殷玉珍：毛乌素成了“绿乌素”“金乌素”",
+      "因麻疹疫情 美国纽约州宣布进入灾难紧急状态",
+      "网传凭员工口令可购低价机票 靠谱吗？",
+      "车市进入全年销售关键期，今年能否再现“金九银十”？",
+      "2026年东北地区城市足球联赛落幕 长春队夺冠",
+      "重庆警方通报：7人盗矿时因降雨引发矿洞突发涨水溺亡"
+    ],
+    "articles": [
+      {
+        "title": "我国海水淡化日处理能力突破300万吨",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-06/10708356.shtml",
+        "published_at": "2026-10-06T10:11:42+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "百日千万招聘专项行动推出四个线上招聘专场",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-06/10708355.shtml",
+        "published_at": "2026-10-06T10:09:44+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "殷玉珍：毛乌素成了“绿乌素”“金乌素”",
+        "link": "https://www.chinanews.com.cn/sh/2026/10-06/10708351.shtml",
+        "published_at": "2026-10-06T09:51:32+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "因麻疹疫情 美国纽约州宣布进入灾难紧急状态",
+        "link": "https://www.chinanews.com.cn/gj/2026/10-06/10708345.shtml",
+        "published_at": "2026-10-06T09:42:50+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "网传凭员工口令可购低价机票 靠谱吗？",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-06/10708330.shtml",
+        "published_at": "2026-10-06T09:08:04+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "车市进入全年销售关键期，今年能否再现“金九银十”？",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-06/10708329.shtml",
+        "published_at": "2026-10-06T09:05:02+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "2026年东北地区城市足球联赛落幕 长春队夺冠",
+        "link": "https://www.chinanews.com.cn/ty/2026/10-06/10708323.shtml",
+        "published_at": "2026-10-06T08:37:30+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "重庆警方通报：7人盗矿时因降雨引发矿洞突发涨水溺亡",
+        "link": "https://www.chinanews.com.cn/sh/2026/10-06/10708319.shtml",
+        "published_at": "2026-10-06T08:36:42+08:00",
+        "source": "中国新闻网"
+      }
+    ],
+    "updated": "2026-10-06T10:33:45.082280+08:00",
+    "window_hours": 24
+  }
+}
