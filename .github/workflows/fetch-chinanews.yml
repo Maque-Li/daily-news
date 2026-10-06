@@ -1,0 +1,127 @@
+name: Fetch China News RSS
+
+on:
+  schedule:
+    # UTC 每小时第 17 分钟更新；北京时间同样为每小时第 17 分钟。
+    # GitHub 定时任务可能延迟，不保证准点执行。
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-chinanews-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch RSS and generate JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          # 不存在时创建目录；单独存放，避免覆盖原来的 60s 新闻。
+          mkdir -p static/chinanews
+          response="$(mktemp)"
+          trap 'rm -f "$response"' EXIT
+          curl --fail --silent --show-error --location \
+            --retry 3 --retry-delay 5 --connect-timeout 15 --max-time 45 \
+            --user-agent 'SmartAlarm-RSS/1.0' \
+            'https://www.chinanews.com.cn/rss/importnews.xml' -o "$response"
+
+          python3 - "$response" <<'PY'
+          import html
+          import json
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+          from datetime import datetime, timedelta
+          from email.utils import parsedate_to_datetime
+          from pathlib import Path
+          from urllib.parse import urlparse
+          from zoneinfo import ZoneInfo
+
+          now = datetime.now(ZoneInfo("Asia/Shanghai"))
+          cutoff = now - timedelta(hours=24)
+          root = ET.parse(sys.argv[1]).getroot()
+          articles = []
+          for item in root.findall("./channel/item"):
+              title = html.unescape(item.findtext("title") or "")
+              title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", title)).strip()
+              link = (item.findtext("link") or "").strip()
+              try:
+                  published = parsedate_to_datetime(item.findtext("pubDate") or "")
+              except (ValueError, TypeError, OverflowError):
+                  continue
+              if published.tzinfo is None:
+                  continue
+              published = published.astimezone(now.tzinfo)
+              parsed_link = urlparse(link)
+              if not title or parsed_link.scheme not in {"http", "https"}:
+                  continue
+              if parsed_link.hostname not in {"www.chinanews.com.cn", "chinanews.com.cn"}:
+                  continue
+              if not cutoff <= published <= now:
+                  continue
+              articles.append({"title": title, "link": link,
+                               "published_at": published.isoformat(),
+                               "source": "中国新闻网"})
+
+          articles.sort(key=lambda item: item["published_at"], reverse=True)
+          selected, titles, links = [], set(), set()
+          for article in articles:
+              if article["title"] in titles or article["link"] in links:
+                  continue
+              selected.append(article)
+              titles.add(article["title"])
+              links.add(article["link"])
+              if len(selected) == 8:
+                  break
+          if not selected:
+              raise SystemExit("最近 24 小时没有有效新闻，保留已有 JSON，不覆盖为空数据。")
+
+          # date 为本次汇总日期，单篇新闻的实际发布时间保留在 articles 中。
+          payload = {"code": 200, "message": "获取成功", "data": {
+              "date": now.date().isoformat(),
+              "source": "中国新闻网 · 要闻 RSS",
+              "link": "https://www.chinanews.com.cn/rss/importnews.xml",
+              "news": [article["title"] for article in selected],
+              "articles": selected,
+              "updated": now.isoformat(),
+              "window_hours": 24,
+          }}
+          directory = Path("static/chinanews")
+          latest = directory / "latest.json"
+          if latest.exists():
+              try:
+                  previous = json.loads(latest.read_text(encoding="utf-8"))["data"]
+                  if previous.get("date") == payload["data"]["date"] and previous.get("articles") == selected:
+                      print("新闻内容未变化，无需更新。")
+                      sys.exit(0)
+              except (ValueError, KeyError, TypeError):
+                  pass
+          content = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+          (directory / f"{now.date().isoformat()}.json").write_text(content, encoding="utf-8")
+          latest.write_text(content, encoding="utf-8")
+          print(f"保存 {len(selected)} 条新闻，最新发布时间：{selected[0]['published_at']}")
+          PY
+
+      - name: Commit and push updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static/chinanews/
+          if git diff --cached --quiet; then
+            echo "没有变化，无需提交"
+            exit 0
+          fi
+          git commit -m "chore: update China News RSS"
+          git push
