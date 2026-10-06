@@ -2,9 +2,10 @@ name: Fetch China News RSS
 
 on:
   schedule:
-    # UTC 每小时第 17 分钟更新；北京时间同样为每小时第 17 分钟。
+    # 北京时间每天 06:17～12:47，每半小时更新一次。
+    # UTC 前一天 22～23 点对应北京时间 06～07 点，当天 00～04 点对应 08～12 点。
     # GitHub 定时任务可能延迟，不保证准点执行。
-    - cron: '17 * * * *'
+    - cron: '17,47 22-23,0-4 * * *'
   workflow_dispatch:
 
 permissions:
