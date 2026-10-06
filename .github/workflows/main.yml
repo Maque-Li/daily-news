@@ -2,9 +2,10 @@ name: Fetch daily 60s news
 
 on:
   schedule:
-    # 通常北京时间 07:10 左右发布，预留约 17 分钟同步缓冲。
-    # GitHub Actions 使用 UTC：前一天 23:27 = 北京时间次日 07:27。
-    - cron: '27 23 * * *'
+    # 北京时间 07:27 首次抓取，07:47、08:17、09:17、10:17、11:17 补抓。
+    # 定时任务可能延迟；当天已成功保存则直接跳过。
+    - cron: '27,47 23 * * *'
+    - cron: '17 0-3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -31,61 +32,45 @@ jobs:
             mkdir -p static/60s
           fi
 
+      - name: Check whether today is already saved
+        id: freshness
+        shell: bash
+        run: |
+          today="$(TZ=Asia/Shanghai date +%F)"
+          if [ -f static/60s/latest.json ] && jq -e --arg today "$today" '(.data // .) | .date == $today and (.news | type == "array") and (.news | length > 0)' static/60s/latest.json > /dev/null; then
+            echo "fresh=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "fresh=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Fetch and validate news
+        if: steps.freshness.outputs.fresh != 'true'
         shell: bash
         run: |
           set -euo pipefail
           response="$(mktemp)"
           trap 'rm -f "$response"' EXIT
           today="$(TZ=Asia/Shanghai date +%F)"
-          sources=(
-            'https://60s.viki.moe/v2/60s'
-            "https://60s-static.viki.moe/60s/$today.json"
-            "https://cdn.jsdelivr.net/gh/vikiboss/60s-static-host@main/static/60s/$today.json"
-          )
-          fetched=false
-          for source in "${sources[@]}"; do
-            echo "尝试数据源：$source"
-            # 默认仅重试临时故障；403 直接切换数据源。
-            if ! curl --fail --silent --show-error --location \
-              --retry 2 --retry-delay 5 \
-              --connect-timeout 15 --max-time 45 \
-              "$source" -o "$response"; then
-              echo "::warning::请求失败，尝试下一个数据源"
-              continue
-            fi
+          curl --fail --silent --show-error --location \
+            --retry 2 --retry-delay 5 --connect-timeout 15 --max-time 45 \
+            'https://60s.viki.moe/v2/60s?encoding=json' -o "$response"
 
-            # 校验成功状态、非空新闻和北京时间当天日期。
-            if ! jq -e --arg today "$today" '
-              type == "object" and
-              (.code == null or .code == 200) and
-              ((.data // .) | (
-                .date == $today and
-                (.news | type == "array") and
-                (.news | length > 0)
-              ))
-            ' "$response" > /dev/null; then
-              echo "::warning::数据格式无效或不是当天新闻，尝试下一个数据源"
-              continue
-            fi
-            fetched=true
-            break
-          done
-
-          if [ "$fetched" != true ]; then
-            echo "::error::所有数据源均不可用或当天新闻尚未更新，保留已有文件。"
+          if ! jq -e --arg today "$today" '
+            type == "object" and .code == 200 and
+            (.data | (.date == $today and
+              (.news | type == "array") and (.news | length > 0)))
+          ' "$response" > /dev/null; then
+            echo "::error::响应格式无效或当天新闻尚未更新，保留已有文件，等待后续补抓。"
             exit 1
           fi
-
-          # 静态源返回裸数据，补齐 API 包装，保持消费者的 .data 访问方式。
           jq --sort-keys '
             if .data != null then .
-            else {code: 200, message: "获取成功", data: .}
-            end
+            else {code: 200, message: "获取成功", data: .} end
           ' "$response" > "static/60s/$today.json"
           cp "static/60s/$today.json" static/60s/latest.json
 
       - name: Commit and push updates
+        if: steps.freshness.outputs.fresh != 'true'
         shell: bash
         run: |
           set -euo pipefail
