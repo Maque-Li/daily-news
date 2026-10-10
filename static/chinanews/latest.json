@@ -6,16 +6,34 @@
     "source": "中国新闻网 · 要闻 RSS",
     "link": "https://www.chinanews.com.cn/rss/importnews.xml",
     "news": [
+      "英国拟未来四年投入10亿英镑扶持创新集群",
+      "中国驻南非大使馆提醒中国公民加强安全防范",
+      "美国宣布：对国际刑事法院实施制裁",
       "北方大部地区将有冷空气活动 四川陕西局地有大雨或暴雨",
-      "中国选手郑钦文重返中网女单四强",
-      "外交部驻港公署发言人：人口贩运的“锅”香港不背",
-      "王毅会见太平洋岛国政治家联合考察团",
-      "超强厄尔尼诺已形成，对今冬气温有啥影响？",
-      "湖北宜城烟花爆燃事故调查报告公布",
-      "美国防部：将网上直播枪决胡德堡枪击案凶手",
-      "财政部安排使用5500亿元地方政府债务结存限额"
+      "冷空气明起将给北方带来降雨降温 江南华南暖意持续升级",
+      "彭丽媛向2026年联合国教科文组织女童和妇女教育奖颁奖仪式发表视频致辞",
+      "《三体》里的“不要回答”会成真吗？刘慈欣这样看",
+      "三万元买一段“实习”？他们为什么付费"
     ],
     "articles": [
+      {
+        "title": "英国拟未来四年投入10亿英镑扶持创新集群",
+        "link": "https://www.chinanews.com.cn/gj/2026/10-10/10710018.shtml",
+        "published_at": "2026-10-10T09:31:53+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "中国驻南非大使馆提醒中国公民加强安全防范",
+        "link": "https://www.chinanews.com.cn/hr/2026/10-10/10710008.shtml",
+        "published_at": "2026-10-10T09:08:34+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "美国宣布：对国际刑事法院实施制裁",
+        "link": "https://www.chinanews.com.cn/gj/2026/10-10/10709999.shtml",
+        "published_at": "2026-10-10T08:37:16+08:00",
+        "source": "中国新闻网"
+      },
       {
         "title": "北方大部地区将有冷空气活动 四川陕西局地有大雨或暴雨",
         "link": "https://www.chinanews.com.cn/sh/2026/10-10/10709993.shtml",
@@ -23,49 +41,31 @@
         "source": "中国新闻网"
       },
       {
-        "title": "中国选手郑钦文重返中网女单四强",
-        "link": "https://www.chinanews.com.cn/ty/2026/10-09/10709918.shtml",
-        "published_at": "2026-10-09T22:00:51+08:00",
+        "title": "冷空气明起将给北方带来降雨降温 江南华南暖意持续升级",
+        "link": "https://www.chinanews.com.cn/sh/2026/10-10/10709996.shtml",
+        "published_at": "2026-10-10T08:23:31+08:00",
         "source": "中国新闻网"
       },
       {
-        "title": "外交部驻港公署发言人：人口贩运的“锅”香港不背",
-        "link": "https://www.chinanews.com.cn/gn/2026/10-09/10709923.shtml",
-        "published_at": "2026-10-09T21:55:30+08:00",
+        "title": "彭丽媛向2026年联合国教科文组织女童和妇女教育奖颁奖仪式发表视频致辞",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-10/10709984.shtml",
+        "published_at": "2026-10-10T07:52:12+08:00",
         "source": "中国新闻网"
       },
       {
-        "title": "王毅会见太平洋岛国政治家联合考察团",
-        "link": "https://www.chinanews.com.cn/gn/2026/10-09/10709769.shtml",
-        "published_at": "2026-10-09T17:57:42+08:00",
+        "title": "《三体》里的“不要回答”会成真吗？刘慈欣这样看",
+        "link": "https://www.chinanews.com.cn/cul/2026/10-10/10709989.shtml",
+        "published_at": "2026-10-10T07:50:31+08:00",
         "source": "中国新闻网"
       },
       {
-        "title": "超强厄尔尼诺已形成，对今冬气温有啥影响？",
-        "link": "https://www.chinanews.com.cn/sh/2026/10-09/10709751.shtml",
-        "published_at": "2026-10-09T17:18:39+08:00",
-        "source": "中国新闻网"
-      },
-      {
-        "title": "湖北宜城烟花爆燃事故调查报告公布",
-        "link": "https://www.chinanews.com.cn/sh/2026/10-09/10709692.shtml",
-        "published_at": "2026-10-09T16:14:44+08:00",
-        "source": "中国新闻网"
-      },
-      {
-        "title": "美国防部：将网上直播枪决胡德堡枪击案凶手",
-        "link": "https://www.chinanews.com.cn/gj/2026/10-09/10709658.shtml",
-        "published_at": "2026-10-09T15:55:39+08:00",
-        "source": "中国新闻网"
-      },
-      {
-        "title": "财政部安排使用5500亿元地方政府债务结存限额",
-        "link": "https://www.chinanews.com.cn/cj/2026/10-09/10709657.shtml",
-        "published_at": "2026-10-09T15:37:04+08:00",
+        "title": "三万元买一段“实习”？他们为什么付费",
+        "link": "https://www.chinanews.com.cn/edu/2026/10-10/10709986.shtml",
+        "published_at": "2026-10-10T07:43:03+08:00",
         "source": "中国新闻网"
       }
     ],
-    "updated": "2026-10-10T08:37:50.911504+08:00",
+    "updated": "2026-10-10T09:54:14.484472+08:00",
     "window_hours": 24
   }
 }
