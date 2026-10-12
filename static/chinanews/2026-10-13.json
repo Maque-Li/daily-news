@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "message": "获取成功",
+  "data": {
+    "date": "2026-10-13",
+    "source": "中国新闻网 · 要闻 RSS",
+    "link": "https://www.chinanews.com.cn/rss/importnews.xml",
+    "news": [
+      "税务部门曝光5起涉税中介违规帮助他人偷逃税案件",
+      "国家铁路局发布《铁路科技创新“十五五”规划》",
+      "84年后，他再次带着父亲的降落伞残布来到中国",
+      "超越联讯仪器 贵州茅台重回“股王”宝座",
+      "江西省政协原副主席胡幼桃受贿案一审被判十三年",
+      "市场监管总局批准发布88项国家标准样品",
+      "美国制裁国际刑事法院 中国外交部回应",
+      "尼泊尔最新洪灾是否影响到中国公民？中方回应"
+    ],
+    "articles": [
+      {
+        "title": "税务部门曝光5起涉税中介违规帮助他人偷逃税案件",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-12/10712214.shtml",
+        "published_at": "2026-10-12T19:28:06+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "国家铁路局发布《铁路科技创新“十五五”规划》",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-12/10712189.shtml",
+        "published_at": "2026-10-12T18:28:09+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "84年后，他再次带着父亲的降落伞残布来到中国",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-12/10712126.shtml",
+        "published_at": "2026-10-12T17:06:45+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "超越联讯仪器 贵州茅台重回“股王”宝座",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-12/10712051.shtml",
+        "published_at": "2026-10-12T17:05:55+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "江西省政协原副主席胡幼桃受贿案一审被判十三年",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-12/10712138.shtml",
+        "published_at": "2026-10-12T17:01:48+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "市场监管总局批准发布88项国家标准样品",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-12/10712087.shtml",
+        "published_at": "2026-10-12T16:12:50+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "美国制裁国际刑事法院 中国外交部回应",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-12/10712077.shtml",
+        "published_at": "2026-10-12T15:54:45+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "尼泊尔最新洪灾是否影响到中国公民？中方回应",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-12/10712074.shtml",
+        "published_at": "2026-10-12T15:49:43+08:00",
+        "source": "中国新闻网"
+      }
+    ],
+    "updated": "2026-10-13T06:27:08.342394+08:00",
+    "window_hours": 24
+  }
+}
