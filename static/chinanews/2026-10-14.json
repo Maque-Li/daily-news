@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "message": "获取成功",
+  "data": {
+    "date": "2026-10-14",
+    "source": "中国新闻网 · 要闻 RSS",
+    "link": "https://www.chinanews.com.cn/rss/importnews.xml",
+    "news": [
+      "重庆市委原副书记、市政府原市长黄奇帆被查",
+      "男子在悬空寺古建横梁做引体向上 景区通报：公安机关已立案",
+      "三部门：到2028年，内河新能源船舶保有量较2025年翻倍",
+      "市场监管总局公布7起涉导向违法广告典型案例",
+      "事关优化环保电价监管 市场监管总局公开征求意见",
+      "三部门联合印发《关于加强农村助老员队伍建设的通知》",
+      "我国牵头制定的电气继电器线圈特性测试国际标准发布",
+      "中国央行批准威士公司筹备银行卡清算机构"
+    ],
+    "articles": [
+      {
+        "title": "重庆市委原副书记、市政府原市长黄奇帆被查",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-13/10713924.shtml",
+        "published_at": "2026-10-13T18:02:26+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "男子在悬空寺古建横梁做引体向上 景区通报：公安机关已立案",
+        "link": "https://www.chinanews.com.cn/sh/2026/10-13/10713912.shtml",
+        "published_at": "2026-10-13T17:40:37+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "三部门：到2028年，内河新能源船舶保有量较2025年翻倍",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-13/10713807.shtml",
+        "published_at": "2026-10-13T16:09:58+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "市场监管总局公布7起涉导向违法广告典型案例",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-13/10713816.shtml",
+        "published_at": "2026-10-13T16:07:10+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "事关优化环保电价监管 市场监管总局公开征求意见",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-13/10713802.shtml",
+        "published_at": "2026-10-13T16:00:36+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "三部门联合印发《关于加强农村助老员队伍建设的通知》",
+        "link": "https://www.chinanews.com.cn/gn/2026/10-13/10713799.shtml",
+        "published_at": "2026-10-13T15:56:39+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "我国牵头制定的电气继电器线圈特性测试国际标准发布",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-13/10713774.shtml",
+        "published_at": "2026-10-13T15:39:50+08:00",
+        "source": "中国新闻网"
+      },
+      {
+        "title": "中国央行批准威士公司筹备银行卡清算机构",
+        "link": "https://www.chinanews.com.cn/cj/2026/10-13/10713678.shtml",
+        "published_at": "2026-10-13T14:18:34+08:00",
+        "source": "中国新闻网"
+      }
+    ],
+    "updated": "2026-10-14T06:37:23.251842+08:00",
+    "window_hours": 24
+  }
+}
